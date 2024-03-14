@@ -27,8 +27,7 @@ if [ ! -f "$HOME/.config/fish/functions/fisher.fish" ]
     mkdir -p "$HOME/.config/fish/functions"
     curl -sL "$FISHER_ORIGIN" > "$FISHER_TARGET"
 
-    source "$HOME/.config/fish/config.fish"
-    fisher install jorgebucaran/fisher
+	fish -c 'fisher update'
 end
 
 
