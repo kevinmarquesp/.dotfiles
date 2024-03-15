@@ -1,0 +1,3 @@
+arcticicestudio.nord-visual-studio-code
+equinusocio.vsc-material-theme-icons
+vscodevim.vim
