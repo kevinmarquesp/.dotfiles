@@ -9,6 +9,7 @@
     
     "terminal.integrated.defaultProfile.linux": "fish",
     "terminal.integrated.allowChords": false,
+    "terminal.integrated.commandsToSkipShell": ["-workbench.action.quickOpen"],
 
     "workbench.iconTheme": "eq-material-theme-icons-light",
     "workbench.colorTheme": "Nord",
