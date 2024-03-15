@@ -1,0 +1,44 @@
+{
+    "editor.rulers": [80, 120],
+    "editor.tabSize": 4,
+
+    "editor.fontFamily": "'FiraCode Nerd Font', 'Droid Sans Mono', 'monospace', monospace",
+    "editor.fontWeight": "bold",
+    "editor.fontSize": 12,
+    "editor.fontLigatures": true,
+    
+    "terminal.integrated.defaultProfile.linux": "fish",
+    "terminal.integrated.allowChords": false,
+
+    "workbench.iconTheme": "eq-material-theme-icons-light",
+    "workbench.colorTheme": "Nord",
+
+    "vim.leader": "<space>",
+    "vim.insertModeKeyBindings": [{ "before": ["<c-l>"], "after": ["<esc>"] }],
+    "vim.visualModeKeyBindings": [{ "before": ["<c-l>"], "after": ["<esc>"] }],
+    "vim.normalModeKeyBindings": [
+        { "before": ["Y"], "after": ["y", "g", "$"] },
+        { "before": ["n"], "after": ["n", "z", "z", ""] },
+        { "before": ["N"], "after": ["N", "z", "z", ""] },
+        { "before": ["<leader>", "h"], "after": ["<c-w>", "h"] },
+        { "before": ["<leader>", "j"], "after": ["<c-w>", "j"] },
+        { "before": ["<leader>", "k"], "after": ["<c-w>", "k"] },
+        { "before": ["<leader>", "l"], "after": ["<c-w>", "l"] },
+        { "before": ["<leader>", "<leader>"], "after": ["@"] },
+        { "before": ["<leader>", "."], "after": ["A", ".", "<esc>"] },
+        { "before": ["<leader>", ","], "after": ["A", ",", "<esc>"] },
+        { "before": ["<leader>", ";"], "after": ["A", ";", "<esc>"] },
+        { "before": ["<leader>", ":"], "after": ["A", ":", "<esc>"] },
+        { "before": ["<leader>", "q"], "commands": [":q"] },
+        { "before": ["<leader>", "Q"], "commands": [":qa!"] },
+        { "before": ["<tab>"], "commands": [":bn"] },
+        { "before": ["<s-tab>"], "commands": [":bp"] },
+        { "before": ["<leader>", "i"], "commands": [":vsplit"] },
+        { "before": ["<leader>", "s"], "commands": [":split"] },
+        { "before": ["<leader>", "t"], "commands": ["workbench.action.terminal.toggleTerminal"] },
+        { "before": ["<c-p>"], "commands": ["workbench.action.quickOpen"] }
+    ],
+
+    "security.workspace.trust.untrustedFiles": "open",
+    "explorer.confirmDelete": false
+}
