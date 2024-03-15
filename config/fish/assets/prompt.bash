@@ -1,6 +1,6 @@
-# ----------------------------------------------
-# minimal bash prompt adapted from this article:
-# http://www.daprose.de/article/minimal-git-bash-prompt
+## BASH PROMPT:
+## 	Minimal bash prompt adapted from this article ->
+## 	http://www.daprose.de/article/minimal-git-bash-prompt
 
 # bash color escape sequences
 clr_rd=$'\001'$(tput setaf 1 2>/dev/null || echo $'\e[31m')$'\002'
@@ -38,8 +38,8 @@ function dereference_gi {
 # run command before bash takes PS1 to build prompt
 PROMPT_CO="dereference_gi; $PROMPT_CO"
 
-if [ $USER = "root" ]; then  #test
-    PS1="${clr_rd}[\u@\h] ${clr_re}\W ${GIT_HE}${clr_rd}# ${clr_re}"  #testing
+if [ $USER = "root" ]; then
+    PS1="${clr_rd}[\u@\h] ${clr_re}\W ${GIT_HE}${clr_rd}# ${clr_re}"
 else
     PS1="${clr_gr}[\u@\h] ${clr_re}\W ${GIT_HE}${clr_gr}\$ ${clr_re}"
 fi
