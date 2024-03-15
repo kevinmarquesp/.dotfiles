@@ -26,7 +26,7 @@ if [ ! -f "$FISH_HOME/functions/fisher.fish" ]
     curl -sL "$FISHER_ORIGIN" > "$FISHER_TARGET"
 
 	fish -c 'fisher update' &&
-		source "$FISH_HOME/config.fish"
+		exec "fish"  #- Replaces the current Fish session to a new one
 end
 
 
