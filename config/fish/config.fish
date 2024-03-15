@@ -14,20 +14,19 @@ fish_vi_key_bindings  #- Enables the VI mode, now I can use <c-p> to go into nor
 ## FISHER INSTALLATION:
 ##  That's a cool section in my Fish config. If I'm oppening this shell in a new
 ##  machine that I hasn't installed the Fisher plugin manager, it will automatically
-##  install Fisher for me.
-##
-##  But the changes that the Fisher provides will only be applyed on the next login,
-##  so -- after you clonned this config to your machine -- you'll need to open the
-##  shell twice. On the seccond time, everything should be configured.
+##  install Fisher for me and set everything up! How cool is that?
 
-if [ ! -f "$HOME/.config/fish/functions/fisher.fish" ]
+set FISH_HOME "$HOME/.config/fish"
+
+if [ ! -f "$FISH_HOME/functions/fisher.fish" ]
 	set FISHER_ORIGIN 'https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish'
-	set FISHER_TARGET "$HOME/.config/fish/functions/fisher.fish"
+	set FISHER_TARGET "$FISH_HOME/functions/fisher.fish"
 
-    mkdir -p "$HOME/.config/fish/functions"
+    mkdir -p "$FISH_HOME/functions"
     curl -sL "$FISHER_ORIGIN" > "$FISHER_TARGET"
 
-	fish -c 'fisher update'
+	fish -c 'fisher update' &&
+		source "$FISH_HOME/config.fish"
 end
 
 
