@@ -1,8 +1,8 @@
 function update_bashrc -d "Convert the fish/user/ files to a single ~/.bashrc file"
-	set BASHPROMPT_FILE "$HOME/.config/fish/assets/prompt.bash"
-	set GVARS_FILE "$HOME/.config/fish/user/gvariables.fish"
-	set ALIASRC_FILE "$HOME/.config/fish/user/aliasrc.fish"
-	set BRC "$HOME/.bashrc"  #- I called this var that short to longer lines
+	set BASHPROMPT_FILE "$HOME/.config/fish/assets/prompt.bash"  #- Custom prompt to append to the final .bashrc file
+	set GVARS_FILE "$HOME/.config/fish/user/gvariables.fish"     #- Global variables list file
+	set ALIASRC_FILE "$HOME/.config/fish/user/aliasrc.fish"      #- File with the alias/abbr list written in a special syntax
+	set BRC "$HOME/.bashrc"                                      #- I called this var that short to longer lines
 
 	#- Displays an warnning message and then ask the user if it's ok to continue.
 	printf "\n%s[WARNING]%s: This command will overwrite the %s~/.bashrc%s file!\n" \
