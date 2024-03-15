@@ -41,5 +41,6 @@
     ],
 
     "security.workspace.trust.untrustedFiles": "open",
-    "explorer.confirmDelete": false
+    "explorer.confirmDelete": false,
+    "editor.minimap.enabled": false
 }
