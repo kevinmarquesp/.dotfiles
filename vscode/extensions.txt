@@ -1,3 +1,7 @@
 arcticicestudio.nord-visual-studio-code
 equinusocio.vsc-material-theme-icons
+ms-python.debugpy
+ms-python.python
+ms-python.vscode-pylance
+ms-vsliveshare.vsliveshare
 vscodevim.vim
