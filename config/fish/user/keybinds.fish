@@ -20,7 +20,7 @@ function __select_and_load_tmuxifier_session -d 'bind (alt) attach a session'
         tmuxifier load-session (tmuxifier list-sessions | fzf --preview '')
 end
 
-bind -M insert \eL __select_and_load_tmuxifier_session
+bind -M insert \eA __select_and_load_tmuxifier_session
 
 function __create_new_tmuxifier_session -d 'bind (alt) create new session file'
     read -P 'fish (read) : specify a session name: ' r_session_name
