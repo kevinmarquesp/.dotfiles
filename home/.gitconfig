@@ -1,0 +1,48 @@
+[user]
+    user = kevinmarquesp
+    name = Kevin Marques
+    email = kevinmarqueskmp@gmail.com
+
+[color]
+    status = auto
+    diff = auto
+    branch = auto
+    interactive = auto
+    grep = auto
+    ui = auto
+
+[init]
+    defaultBranch = main
+
+[diff]
+    tool = nvimdiff
+
+[alias]
+    a = add
+    ap = add -p
+    b = branch --verbose --abbrev
+    c = commit
+    d = diff
+    i = init
+    l = log --oneline --graph --decorate
+    s = status --short --branch
+    r = restore
+    rs = restore --staged
+
+    # push related aliasses
+    p = push
+    cl = clone
+    ch = checkout
+    bn = checkout -b
+    m = checkout main
+
+    # remote repo hendler
+    rao = remote add origin
+    psuo = push --set-upstream origin
+    psuom = push --set-upstream origin main
+
+    # show a cool graph of all commits
+    hist = log --graph --name-status --pretty=format:\"%C(red)%h %C(reset)(%cd) %C(green)%an %Creset%s %C(yellow)%d%Creset\" --date=relative
+
+[credential "https://github.com"]
+	helper = !/usr/bin/gh auth git-credential
