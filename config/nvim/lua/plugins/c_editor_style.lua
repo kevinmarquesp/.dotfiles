@@ -15,10 +15,7 @@ end
 --- customizações e detalhes que estão mais próximos do usuário final, como
 --- keymaps e similares
 local function user_setup()
-    vim.cmd('colorscheme nord')
-
-    vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-    vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+    vim.cmd("colorscheme nord")
 end
 
 --- Helper function, ela deve ser usada no dentro de plug.config() para
