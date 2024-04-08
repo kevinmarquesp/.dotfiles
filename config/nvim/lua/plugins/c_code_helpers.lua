@@ -21,6 +21,8 @@ local function plug_setup()
             disable = { 'scss', 'css', 'sass' },
         },
     })
+
+   require("todo-comments").setup()
 end
 
 --- Essa função serve para você separar a configuração do plugin de algumas
@@ -53,11 +55,12 @@ return {
     dependencies = {
         "tpope/vim-commentary",
         "windwp/nvim-autopairs",
+        "folke/todo-comments.nvim",
     },
 
     config = function()
         local status_ok, info = verify_require({ "nvim-treesitter.configs",
-        "nvim-autopairs" })
+        "nvim-autopairs", "todo-comments" })
         if not status_ok then
             print(info)
             return

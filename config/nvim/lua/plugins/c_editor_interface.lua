@@ -47,6 +47,10 @@ local function plug_setup()
             changedelete = { hl = 'GitSignsChange', text = '', numhl='GitSignsChangeNr', linehl='GitSignsChangeLn' }
         }
     })
+
+    -- Configuração do INDENT BLANK LINE
+    ---------------------------------------------------------------------------
+    require("ibl").setup()
 end
 
 --- Helper function, ela deve ser usada no dentro de plug.config() para
@@ -72,11 +76,12 @@ return {
         "akinsho/bufferline.nvim",
         "tiagovla/scope.nvim",
         "lewis6991/gitsigns.nvim",
+        "lukas-reineke/indent-blankline.nvim",
     },
 
     config = function()
         local status_ok, info = verify_require({ "lualine", "bufferline",
-            "scope", "gitsigns" })
+            "scope", "gitsigns", "ibl" })
         if not status_ok then
             print(info)
             return
