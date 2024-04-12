@@ -44,6 +44,14 @@ local function user_setup()
     map("n", "<leader><f2>", vim.lsp.buf.rename,           opts)
     map("n", "<leader>d",    vim.lsp.buf.workspace_symbol, opts)
     map("n", "<c-k>",        vim.diagnostic.open_float,    opts)
+
+    vim.api.nvim_create_autocmd("BufWritePre", {
+        buffer = vim.fn.bufnr(),
+
+        callback = function ()
+            vim.lsp.buf.format({ timeout = 1500 })
+        end,
+    })
 end
 
 --- Helper function, ela deve ser usada no dentro de plug.config() para
