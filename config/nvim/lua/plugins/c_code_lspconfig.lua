@@ -45,12 +45,14 @@ local function user_setup()
     map("n", "<leader>d",    vim.lsp.buf.workspace_symbol, opts)
     map("n", "<c-k>",        vim.diagnostic.open_float,    opts)
 
-    vim.api.nvim_create_autocmd("BufWritePre", {
-        buffer = vim.fn.bufnr(),
+    -- format all buffers before saving the file
 
-        callback = function ()
-            vim.lsp.buf.format({ timeout = 1500 })
-        end,
+    vim.api.nvim_create_autocmd("BufWrite", {
+        pattern = "*",
+
+        callback = function (arg)
+            vim.lsp.buf.format()
+        end
     })
 end
 
