@@ -1,7 +1,8 @@
 let mapleader="\<space>"
 
-"" OVERWRITING DEFAULT KEYMAPS:
-"" ----------------------------------------------------------------------------
+" Overwriting Default Keymaps:
+"	Some keymaps of Vim doesn't work as expected or even exist, this first
+"	section fix that for me.
 
 inoremap <c-l> <esc>
 vnoremap <c-l> <esc>
@@ -14,7 +15,6 @@ nnoremap J mzJ"z
 nnoremap n nzzzv
 nnoremap N Nzzzv
 
-" TODO :- make it only available on plain vim
 if !has("nvim")
     inoremap / /<c-x><c-f><c-p>
     inoremap . .<c-n><c-p>
@@ -27,9 +27,10 @@ if !has("nvim")
     inoremap } }<c-n><c-p>
 endif
 
-
-"" WINDOWS TABS AND BUFFERS:
-"" ----------------------------------------------------------------------------
+" Panes And Buffer Related Binding:
+"	In fact, this section is related to organized and position the information
+"	of the buffers on the screen - resizing panes, creating windows, selecting,
+"	saving and quiting from buffers, etc.
 
 nnoremap <leader>q :q<cr>
 nnoremap <leader>Q :qa!<cr>
@@ -63,20 +64,21 @@ nnoremap <right> :vertical resize -1<cr>
 if has("nvim")
     nnoremap <leader>t :split<cr>:set nonu nornu<cr>:term fish<cr>a
 else
-    nnoremap <leader>t :term<cr>a
+    nnoremap <leader>t :term<cr>
 endif
 
-
-"" FINDING FILES:
-"" ----------------------------------------------------------------------------
+" Finding And Exploring Files:
+"	This part is quite fun, I can fuzzyfind files on the current directory like
+"	Telescope or like the <c-p> key does in VS Code. Also I'm using Netrw to
+"	explore the files by hand, which is cool to do without any plugins.
 
 nnoremap <c-p> :find ./**/*
-nnoremap <leader>n :Ex<cr>
+
+nnoremap <leader>n :Ex<cr> 
 autocmd FileType netrw nnoremap <buffer> <leader>n <c-6>
 
-
-"" CHANGE SETTINGS ON THE FLY:
-"" ----------------------------------------------------------------------------
+" Update Visual Settings:
+"	Allows me to update some linewrapping/identation settings on the fly.
 
 nnoremap <leader><c-w> :setl wrap!<cr>
 nnoremap <leader>: :set number! relativenumber!<cr>
@@ -86,9 +88,12 @@ nnoremap <leader>1 :set shiftwidth=2 tabstop=2<cr>
 nnoremap <leader>2 :set shiftwidth=4 tabstop=4<cr>
 nnoremap <leader>3 :set shiftwidth=8 tabstop=8<cr>
 
+nnoremap <leader>- :set colorcolumn=80<cr>
+nnoremap <leader>+ :set colorcolumn=120<cr>
 
-"" EDITING AND FORMATING:
-"" ----------------------------------------------------------------------------
+" Little Hacks And Formating Bindings Related:
+"	This binding I created by myself for myself, gotta go fast. Maybe this
+"	section wont be that useful for you, sorry.
 
 inoremap <c-k> <cr><esc>O
 

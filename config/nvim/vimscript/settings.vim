@@ -1,5 +1,6 @@
-"" QUICK FIX AND BEHAVIORS:
-"" ----------------------------------------------------------------------------
+" Quick Fix Default Behaviors:
+"	Fix the terminal colors, configure my clipboard share, path, mouse, etc. In
+"	a nut shell, all the settings to distribute my config to other OS'es.
 
 set clipboard^=unnamed,unnamedplus
 set termguicolors encoding=UTF-8
@@ -16,38 +17,40 @@ set mouse=a
 set nocompatible
 set updatetime=50
 
-set hidden confirm showmode
 set autoread
 
 if has("nvim")
     set laststatus=3
 endif
 
+set noswapfile nobackup
+set undofile undodir=~/.vim/undo_dir
 
-"" WINDOWS BUFFERS TABS AND STATUS LINE SETTINGS:
-"" ----------------------------------------------------------------------------
+" Windows And Buffer Related:
+"	Setup some buffer and syntax hightlighting settings, some specif buffer
+"	types I would like to use a specific syntax, for an example.
+
+set hidden confirm showmode
 
 set splitbelow splitright
 au CursorHold * checktime
 
-" custom syntax hightlight for some files
 au BufWinEnter *.txt set ft=help
+autocmd BufNewFile,BufRead *.edge set filetype=html
+
 if !has("nvim")
     au BufWinEnter *.ino set ft=cpp
 endif
 
-set noswapfile nobackup
-set undofile undodir=~/.vim/undo_dir
-
-
-"" EDITOR INTERFACE SETTINGS:
-"" ----------------------------------------------------------------------------
+" Look And Feel:
+"	Fix some visual settings to improve readability, also, it fixes the Netrw
+"	appearence.
 
 set number relativenumber
-set nowrap cursorline
+set nowrap
+set cursorline colorcolumn=80
 
 set wildmenu
-set colorcolumn=80
 
 syntax on
 colorscheme pablo
@@ -55,10 +58,6 @@ set fcs=eob:\
 
 set hlsearch incsearch
 
-" customizing NETRW interface
 let g:netrw_liststyle=3
 let g:netrw_list_hide=netrw_gitignore#Hide()
 let g:netrw_list_hide=',\(^\|\s\s\)\zs\.\S\+'
-
-"" TODO: add description...
-autocmd BufNewFile,BufRead *.edge set filetype=html

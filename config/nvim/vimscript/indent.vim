@@ -1,6 +1,5 @@
 set noexpandtab smartindent breakindent linebreak
 set shiftwidth=4 tabstop=4 formatoptions=1
-set nowrap colorcolumn=8
 
 au BufWinEnter *.html setl shiftwidth=2 tabstop=2
 au BufWinEnter *.cpp setl shiftwidth=2 tabstop=2
