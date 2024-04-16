@@ -13,7 +13,8 @@ map("n", "<leader><f3>", vim.lsp.buf.references, opts)
 map("n", "<leader><f2>", vim.lsp.buf.rename, opts)
 map("n", "<leader>d", vim.lsp.buf.workspace_symbol, opts)
 map("n", "<c-k>", vim.diagnostic.open_float, opts)
-map("n", "<leader>S", ":LspStart<cr>", opts)
+map("n", "<leader>L", ":LspStart<cr>", opts)
+map("n", "<leader>S", ":LspStop<cr>", opts)
 
 local status_ok, telescope_builtin = pcall(require, "telescope.builtin")
 
