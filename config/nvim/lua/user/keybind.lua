@@ -13,11 +13,12 @@ map("n", "<leader><f3>", vim.lsp.buf.references, opts)
 map("n", "<leader><f2>", vim.lsp.buf.rename, opts)
 map("n", "<leader>d", vim.lsp.buf.workspace_symbol, opts)
 map("n", "<c-k>", vim.diagnostic.open_float, opts)
+map("n", "<leader>S", ":LspStart<cr>", opts)
 
 local status_ok, telescope_builtin = pcall(require, "telescope.builtin")
 
 if not status_ok then
-   vim.schedule(function ()
+   vim.schedule(function()
       print("Cannot configure Telescope bindings, error when requiring.")
    end)
 
