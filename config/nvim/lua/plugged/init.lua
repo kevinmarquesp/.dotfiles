@@ -106,4 +106,17 @@ lazy.setup({
          require("plugged.config.autopairs")
       end,
    },
+
+   {
+      "williamboman/mason.nvim",
+      dependencies = {
+         "neovim/nvim-lspconfig",
+         "williamboman/mason-lspconfig.nvim",
+         "folke/neodev.nvim",
+         "j-hui/fidget.nvim",
+      },
+      config = function()
+         require("plugged.config.lspconfig")
+      end,
+   },
 })
