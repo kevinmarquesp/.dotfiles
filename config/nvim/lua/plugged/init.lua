@@ -20,6 +20,43 @@ if not status_ok then
    return
 end
 
--- The plugins list should be in the table below
+-- the plugins list should be in the table below + the configuration modules
 
-lazy.setup({})
+lazy.setup({
+   "kyazdani42/nvim-web-devicons",
+   "tpope/vim-surround",
+   "andweeb/presence.nvim",
+
+   {
+      "shaunsingh/nord.nvim",
+      dependencies = { "akinsho/bufferline.nvim" },
+      config = function()
+         require("plugged.config.nord")
+      end,
+   },
+   {
+      "nvim-lualine/lualine.nvim",
+      config = function()
+         require("plugged.config.lualine")
+      end,
+   },
+   {
+      "akinsho/bufferline.nvim",
+      dependencies = { "tiagovla/scope.nvim" },
+      config = function()
+         require("plugged.config.bufferline")
+      end,
+   },
+   {
+      "lewis6991/gitsigns.nvim",
+      config = function()
+         require("plugged.config.gitsigns")
+      end,
+   },
+   {
+      "lukas-reineke/indent-blankline.nvim",
+      config = function()
+         require("plugged.config.ibl")
+      end,
+   },
+})
