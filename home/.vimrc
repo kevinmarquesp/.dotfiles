@@ -63,20 +63,21 @@ nnoremap <leader>n :Ex<cr>
 autocmd FileType netrw nnoremap <buffer> <leader>n <c-6>
 nnoremap <leader><c-w> :setl wrap!<cr>
 nnoremap <leader>: :set number! relativenumber!<cr>
+nnoremap <leader>I :set expandtab smartindent breakindent linebreak<cr>
+nnoremap <leader>1 :set shiftwidth=2 tabstop=2<cr>
+nnoremap <leader>2 :set shiftwidth=4 tabstop=4<cr>
+nnoremap <leader>3 :set shiftwidth=8 tabstop=8<cr>
 inoremap <c-k> <cr><esc>O
 nnoremap <leader>gg mzgg=G"z
 nnoremap <leader><leader> @
 nnoremap <f2> :%s/<c-r><c-w>//g<c-r><c-r><left><left><left>
 xnoremap <leader>p "_dP
-nnoremap <leader>1 :set shiftwidth=2 tabstop=2<cr>
-nnoremap <leader>2 :set shiftwidth=4 tabstop=4<cr>
-nnoremap <leader>3 :set shiftwidth=8 tabstop=8<cr>
 nnoremap <leader>. A.<esc>
 nnoremap <leader>, A,<esc>
 nnoremap <leader>; A;<esc>
-nnoremap <leader>: A:<esc>
 vnoremap J :m '>+1<cr>gv=gv
 vnoremap K :m '<-2<cr>gv=gv
+vnoremap <f2> :%s///<left><left>
 set clipboard^=unnamed,unnamedplus
 set termguicolors encoding=UTF-8
 if !has("nvim")
