@@ -29,7 +29,6 @@ lazy.setup({
 
    {
       "shaunsingh/nord.nvim",
-      dependencies = { "akinsho/bufferline.nvim" },
       config = function()
          require("plugged.config.nord")
       end,
@@ -57,6 +56,35 @@ lazy.setup({
       "lukas-reineke/indent-blankline.nvim",
       config = function()
          require("plugged.config.ibl")
+      end,
+   },
+
+   {
+      "nvim-telescope/telescope.nvim",
+      dependencies = { "nvim-lua/plenary.nvim" },
+      config = function()
+         require("plugged.config.telescope")
+      end,
+   },
+   {
+      "hrsh7th/nvim-cmp",
+      dependencies = {
+         "hrsh7th/cmp-nvim-lua",
+         "hrsh7th/cmp-nvim-lsp",
+         "hrsh7th/cmp-buffer",
+         "hrsh7th/cmp-path",
+         "hrsh7th/cmp-cmdline",
+         "saadparwaiz1/cmp_luasnip",
+      },
+      config = function()
+         require("plugged.config.cmp")
+      end,
+   },
+   {
+      "L3MON4D3/LuaSnip",
+      dependencies = { "rafamadriz/friendly-snippets" },
+      config = function()
+         require("plugged.config.luasnip")
       end,
    },
 })
