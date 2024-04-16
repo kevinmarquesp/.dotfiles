@@ -87,4 +87,23 @@ lazy.setup({
          require("plugged.config.luasnip")
       end,
    },
+
+   {
+      "nvim-treesitter/nvim-treesitter",
+      config = function()
+         require("plugged.config.treesitter")
+      end,
+   },
+   {
+      "tpope/vim-commentary",
+      config = function()
+         require("plugged.config.commentary")
+      end,
+   },
+   {
+      "windwp/nvim-autopairs",
+      config = function()
+         require("plugged.config.autopairs")
+      end,
+   },
 })
