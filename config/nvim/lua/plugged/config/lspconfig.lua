@@ -57,10 +57,20 @@ fidget.setup()
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = cmp_lsp.default_capabilities(capabilities)
 
-local servers = {}
+local servers = {
+   pylsp = {
+      pylsp = {
+         plugins = {
+            pyflakes = {
+               enabled = false,
+            },
+         },
+      }
+   },
+}
 
 mason_lspconfig.setup({
-   ensure_installed = vim.tbl_keys(servers)
+   ensure_installed = vim.tbl_keys(servers),
 })
 
 mason_lspconfig.setup_handlers({
