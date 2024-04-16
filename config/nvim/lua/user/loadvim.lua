@@ -1,7 +1,7 @@
 local NVIM_CONFIG = os.getenv("HOME") .. "/.config/nvim/"
 
 local VIM_FILES = {
-   "vimscript/autocmd.vim",
+   "vimscript/usercmd.vim",
    "vimscript/indent.vim",
    "vimscript/keybind.vim",
    "vimscript/settings.vim",

@@ -14,4 +14,4 @@ require("plugged.config.commentary")
 require("plugged.config.autopairs")
 require("plugged.config.lspconfig")
 
-require("user.autocmd")
+require("user.usercmd")
