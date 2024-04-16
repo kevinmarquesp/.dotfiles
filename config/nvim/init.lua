@@ -15,4 +15,5 @@ require("plugged.config.autopairs")
 require("plugged.config.lspconfig")
 
 require("user.usercmd")
+require("user.autocmd")
 require("user.keybind")
