@@ -12,7 +12,6 @@
     "terminal.integrated.commandsToSkipShell": ["-workbench.action.quickOpen"],
 
     "workbench.iconTheme": "eq-material-theme-icons-light",
-    "workbench.colorTheme": "Nord",
 
     "vim.useSystemClipboard": true,
     "vim.leader": "<space>",
@@ -43,5 +42,6 @@
 
     "security.workspace.trust.untrustedFiles": "open",
     "explorer.confirmDelete": false,
-    "editor.minimap.enabled": false
+    "editor.minimap.enabled": false,
+    "workbench.colorTheme": "Nord"
 }
