@@ -10,7 +10,9 @@ end
 
 -- this plugins allows me to have different groups of buffers into different tabs
 
-local status_ok, scope = pcall(require, "scope")
+local scope
+
+status_ok, scope = pcall(require, "scope")
 
 if not status_ok then
    vim.schedule(function()

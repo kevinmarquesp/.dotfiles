@@ -8,7 +8,9 @@ if not status_ok then
    return
 end
 
-local status_ok, sorters = pcall(require, "telescope.sorters")
+local sorters
+
+status_ok, sorters = pcall(require, "telescope.sorters")
 
 if not status_ok then
    vim.schedule(function()
@@ -18,7 +20,9 @@ if not status_ok then
    return
 end
 
-local status_ok, previewers = pcall(require, "telescope.previewers")
+local previewers
+
+status_ok, previewers = pcall(require, "telescope.previewers")
 
 if not status_ok then
    vim.schedule(function()

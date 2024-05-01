@@ -10,7 +10,6 @@ require("plugged.config.telescope")
 require("plugged.config.cmp")
 require("plugged.config.luasnip")
 require("plugged.config.treesitter")
-require("plugged.config.commentary")
 require("plugged.config.autopairs")
 require("plugged.config.lspconfig")
 

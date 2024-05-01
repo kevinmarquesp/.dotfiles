@@ -8,7 +8,9 @@ if not status_ok then
    return
 end
 
-local status_ok, mason = pcall(require, "mason")
+local mason
+
+status_ok, mason = pcall(require, "mason")
 
 if not status_ok then
    vim.schedule(function()
@@ -18,7 +20,9 @@ if not status_ok then
    return
 end
 
-local status_ok, neodev = pcall(require, "neodev")
+local neodev
+
+status_ok, neodev = pcall(require, "neodev")
 
 if not status_ok then
    vim.schedule(function()
@@ -28,7 +32,9 @@ if not status_ok then
    return
 end
 
-local status_ok, fidget = pcall(require, "fidget")
+local fidget
+
+status_ok, fidget = pcall(require, "fidget")
 
 if not status_ok then
    vim.schedule(function()
@@ -38,7 +44,9 @@ if not status_ok then
    return
 end
 
-local status_ok, cmp_lsp = pcall(require, "cmp_nvim_lsp")
+local cmp_lsp
+
+status_ok, cmp_lsp = pcall(require, "cmp_nvim_lsp")
 
 if not status_ok then
    vim.schedule(function()
@@ -52,7 +60,7 @@ end
 
 mason.setup()
 neodev.setup()
-fidget.setup()
+fidget.setup({})
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = cmp_lsp.default_capabilities(capabilities)
