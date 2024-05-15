@@ -1,0 +1,208 @@
+## Startup process
+## ---------------
+
+#setting up the workspaces
+#一 二 三 四 五 六 七 八 九 零
+set $ws1  "1:I"
+set $ws2  "2:II"
+set $ws3  "3:III"
+set $ws4  "4:IV"
+set $ws5  "5:V"
+set $ws6  "6:VI"
+set $ws7  "7:VII"
+set $ws8  "8:VIII"
+set $ws9  "9:IX"
+set $ws10 "10:X"
+
+#set my mod key
+set $mod Mod4
+floating_modifier $mod
+
+exec --no-startup-id setxkbmap -layout br
+exec --no-startup-id dunst -conf ~/.config/i3/dunstrc
+exec --no-startup-id picom -b
+exec --no-startup-id xfce4-clipman
+exec --no-startup-id nitrogen --restore
+
+# define the correct workspace to move when the application is started
+for_window [class="obsidian"] move to workspace $ws1
+for_window [class="discord"] move to workspace $ws10
+
+
+## i3wm custom modes
+## -----------------
+
+mode "print" {
+    bindsym r       exec --no-startup-id xfce4-screenshooter -rc; mode "default"
+    bindsym w       exec --no-startup-id xfce4-screenshooter -wc; mode "default"
+    bindsym f       exec --no-startup-id xfce4-screenshooter -fc; mode "default"
+    bindsym Shift+r exec --no-startup-id xfce4-screenshooter -rs ~/Pictures/screenshots/; mode "default"
+    bindsym Shift+w exec --no-startup-id xfce4-screenshooter -ws ~/Pictures/screenshots/; mode "default"
+    bindsym Shift+f exec --no-startup-id xfce4-screenshooter -fs ~/Pictures/screenshots/; mode "default"
+
+    bindsym Return      mode "default"
+    bindsym Escape      mode "default"
+    bindsym $mod+Ctrl+s mode "default"
+}
+
+mode "resize" {
+    bindsym h resize shrink width  5 px
+    bindsym j resize grow   height 5 px
+    bindsym k resize shrink height 5 px
+    bindsym l resize grow   width  5 px
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+    bindsym $mod+r mode "default"
+}
+
+
+## Custom keymaps for some apps/processes
+## --------------------------------------
+
+#basic shortcuts to open some applications
+bindsym $mod+Return  exec bash -c 'st -e fish || which fish || st'
+bindsym $mod+p       exec --no-startup-id rofi -show drun
+bindsym $mod+w       exec --no-startup-id firefox --browser
+bindsym $mod+e       exec --no-startup-id nemo
+bindsym $mod+a       exec --no-startup-id scrcpy --prefer-text
+bindsym $mod+Shift+a exec --no-startup-id scrcpy --otg
+
+#audio keyboard keys
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%      && $refresh_i3status
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%      && $refresh_i3status
+bindsym XF86AudioMute        exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle     && $refresh_i3status
+bindsym XF86AudioMicMute     exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+
+#brightness controll keys
+bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
+bindsym XF86MonBrightnessUp exec --no-startup-id   brightnessctl set 5%+
+
+#printscreen keybinds
+bindsym $mod+s exec --no-startup-id xfce4-screenshooter -rc
+bindsym $mod+Ctrl+s mode "print"
+
+#write the current date
+bindsym --release $mod+d exec --no-startup-id bash -c 'date +%Y-%m-%d_at-%H%M%S | xclip -selection clipboard'
+
+
+## Base window manipulation keybinds
+## ---------------------------------
+
+#minimize and deminimize selected window
+bindsym $mod+minus move scratchpad
+bindsym $mod+equal scratchpad show
+bindsym $mod+Shift+equal exec bash ~/.config/i3/utils/popup_alt.sh
+
+#basic window handling
+bindsym $mod+q       kill
+bindsym $mod+r       mode "resize"
+bindsym $mod+F11     fullscreen toggle
+bindsym $mod+Shift+k fullscreen toggle
+
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+bindsym $mod+Left  move left
+bindsym $mod+Down  move down
+bindsym $mod+Up    move up
+bindsym $mod+Right move right
+
+#window layout manipulation
+bindsym $mod+comma  split v
+bindsym $mod+period split h
+
+bindsym $mod+Shift+Return layout toggle split
+bindsym $mod+Shift+s      layout toggle stacking splitv
+bindsym $mod+Shift+t      layout toggle tabbed splitv
+bindsym $mod+space        focus parent
+bindsym $mod+Shift+space  floating toggle
+
+#i3wm related
+bindsym $mod+Shift+c reload
+bindsym $mod+Shift+r restart
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+
+#basic workspace manipulation
+bindsym $mod+Ctrl+h  workspace prev_on_output
+bindsym $mod+Ctrl+l  workspace next_on_output
+bindsym $mod+Shift+h move container to workspace prev_on_output
+bindsym $mod+Shift+l move container to workspace next_on_output
+bindsym $mod+1 workspace number $ws1
+bindsym $mod+2 workspace number $ws2
+bindsym $mod+3 workspace number $ws3
+bindsym $mod+4 workspace number $ws4
+bindsym $mod+5 workspace number $ws5
+bindsym $mod+6 workspace number $ws6
+bindsym $mod+7 workspace number $ws7
+bindsym $mod+8 workspace number $ws8
+bindsym $mod+9 workspace number $ws9
+bindsym $mod+0 workspace number $ws10
+bindsym $mod+Shift+1 move container to workspace number $ws1
+bindsym $mod+Shift+2 move container to workspace number $ws2
+bindsym $mod+Shift+3 move container to workspace number $ws3
+bindsym $mod+Shift+4 move container to workspace number $ws4
+bindsym $mod+Shift+5 move container to workspace number $ws5
+bindsym $mod+Shift+6 move container to workspace number $ws6
+bindsym $mod+Shift+7 move container to workspace number $ws7
+bindsym $mod+Shift+8 move container to workspace number $ws8
+bindsym $mod+Shift+9 move container to workspace number $ws9
+bindsym $mod+Shift+0 move container to workspace number $ws10
+
+
+## Styling and apparence customizations
+## ------------------------------------
+
+gaps inner 4
+for_window [class=".*"] border pixel 1
+font pango:Iosevka Nerd Font 7
+title_align center
+
+#nord colorscheme variables
+set $polar0 #2e3440
+set $polar1 #3b4252
+set $polar2 #434c5e
+set $polar3 #4c566a
+set $snow0  #d8dee9
+set $snow1  #e5e9f0
+set $snow2  #eceff4
+set $frost0 #8fbcbb
+set $frost1 #88c0d0
+set $frost2 #81a1c1
+set $frost3 #5e81ac
+set $red    #bf616a
+set $orange #d08770
+set $yellow #ebcb8b
+set $green  #a3be8c
+set $purple #b48ead
+
+#<colorclass>            <border> <background> <text>  <indicator> <child_border>
+client.focused           $frost3  $polar0      $frost1  $frost1     $frost3
+client.focused_inactive  $polar1  $polar0      $green  $frost1     $polar2
+client.unfocused         $polar1  $polar0      $polar3  $frost1     $polar2
+
+bar {
+    status_command i3status --config ~/.config/i3/status.conf
+    position top
+
+    strip_workspace_numbers yes
+    workspace_buttons yes
+    tray_output primary
+
+    font pango:FiraCode Nerd Font Bold 7.5
+
+    colors {
+        separator  $polar0
+        background $polar0
+        statusline $frost1
+
+        #<colorclass>      <border> <background> <text>
+        focused_workspace  $polar0  $polar0      $frost1
+        active_workspace   $polar0  $polar0      $snow2
+        inactive_workspace $polar0  $polar0      $polar3
+        urgent_workspace   $frost2  $frost2      $polar0
+        binding_mode       $frost2  $frost2      $polar0
+    }
+}
