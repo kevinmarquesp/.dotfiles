@@ -4,15 +4,17 @@
 ##  that this particular Fish config has!
 ##
 ##  More information at: http://github.com/kevinmarquesp
-export BAT_THEME='Nord'
+export BAT_THEME="Nord"
 export FZF_DEFAULT_COMMAND='find . -type f -not -path "*/node_modules/*" -not -path "*/.git/*" | sed "s/^\.\///"'
-export PNPM_HOME="$HOME/.local/share/pnpm"
 export EDITOR="vim"
+export VIRTUAL_ENV_DISABLE_PROMPT=1
+export PNPM_HOME="$HOME/.local/share/pnpm"
 export PATH="/bin:/usr/bin:/usr/local/bin"
 export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:$PNPM_HOME"
 export PATH="$PATH:$HOME/go/bin"
 export PATH="$PATH:$HOME/.tmux/plugins/tmuxifier/bin"
+export ERL_MAX_PORTS="1024"
 alias r='rm -rf'
 alias n='nvim'
 alias v='vim'
