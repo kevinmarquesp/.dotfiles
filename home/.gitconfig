@@ -21,6 +21,7 @@
     a = add
     ap = add -p
     b = branch --verbose --abbrev
+	br = branch -m
     c = commit
     d = diff
     i = init
