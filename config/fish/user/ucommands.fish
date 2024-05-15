@@ -1,4 +1,4 @@
-function update_bashrc -d "Convert the fish/user/ files to a single ~/.bashrc file"
+function update_bashrc -d "Convert the fish/user/ files to a single ~/.bashrc file."
 	set BASHPROMPT_FILE "$HOME/.config/fish/assets/prompt.bash"  #- Custom prompt to append to the final .bashrc file
 	set GVARS_FILE "$HOME/.config/fish/user/gvariables.fish"     #- Global variables list file
 	set ALIASRC_FILE "$HOME/.config/fish/user/aliasrc.fish"      #- File with the alias/abbr list written in a special syntax
@@ -27,7 +27,7 @@ function update_bashrc -d "Convert the fish/user/ files to a single ~/.bashrc fi
 	awk '/\\\\$/ {printf("%s",substr($0,1,length($0)-1))} !/\\\\$/ {print}' "$ALIASRC_FILE" |                          #- Concatenate the lines ending with \ to the next one.
 		sed 's/  */ /g;/^ *$/d;/#bign!/d;s/#binc: //g;/^#.*/d' |                                                       #- Include and exclude the commented Bash lines.
 		sed 's/^if\(.*\)$/if\1; then/;s/end/fi/g;s/(\(.*\))/$(\1)/g;s/abbr/alias/;s/\(alias [^ =]*\) /\1=/' >> "$BRC"  #- Parse some of the Fish syntax to Bash.
-	sed 's/^#.*//;/^ *$/d' "$BRCashprompt_file" >> "$BRC"                                                              #- Minify, just that...
+	sed 's/^#.*//;/^ *$/d' "$BASHPROMPT_FILE" >> "$BRC"                                                              #- Minify, just that...
 
 	printf "%s[SUCCESS]%s: %s~/.bashrc%s file updated!\n\n" \
 		(set_color green) (set_color normal) (set_color -i cyan) (set_color normal)
