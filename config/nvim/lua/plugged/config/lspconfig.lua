@@ -73,7 +73,12 @@ local servers = {
                enabled = false,
             },
          },
-      }
+      },
+   },
+   elixirls = {
+      elixirLS = {
+         dialyzerEnabled = false,
+      },
    },
 }
 
@@ -83,7 +88,9 @@ mason_lspconfig.setup({
 
 mason_lspconfig.setup_handlers({
    function(server_name)
-      local status_ok, lspconfig = pcall(require, "lspconfig")
+      local lspconfig
+
+      status_ok, lspconfig = pcall(require, "lspconfig")
 
       if not status_ok then
          vim.schedule(function()
