@@ -32,3 +32,59 @@ function update_bashrc -d "Convert the fish/user/ files to a single ~/.bashrc fi
 	printf "%s[SUCCESS]%s: %s~/.bashrc%s file updated!\n\n" \
 		(set_color green) (set_color normal) (set_color -i cyan) (set_color normal)
 end
+
+function slug -d "Given a string, it will return a kebab slug."
+	if [ -z "$argv" ]
+		read pipe
+
+		slug "$pipe"
+
+		return
+	end
+
+	echo "$argv" |
+		iconv -t "ASCII//TRANSLIT" |
+		tr "[:punct:]" " " |
+		sed 's/\(.*\)/\L\1/;s/ *$//;s/  */-/g'
+end
+
+function clone -d "Clone a git repository but format the directory name to use my convention."
+	argparse --name="clone" "f/fork" "b/branch=" -- $argv ||
+		return
+
+	# Try extract the repo and owner strings from a HTTP or SSH URL.
+	echo "$argv" |
+		grep "^https\?://" |
+		sed 's/https\?:\/\/.*\/\(.*\)\/\(.*\)/{"owner": "\1", "repo": "\2"}/g' |
+		read repo_data
+
+	if [ -z "$repo_data" ]
+		echo "$argv" |
+			grep "^git@.*\.git\$" |
+			sed 's/^git@.*:\(.*\)\/\(.*\)\.git$/{"owner": "\1", "repo": "\2"}/g' |
+			read repo_data
+	end
+
+	if [ -z "$repo_data" ] || not echo "$repo_data" | jq "." &>/dev/null
+		echo "Could not find the repo and owner name in the given string."
+		return 1
+	end
+
+	# Build the direcotry name based with the given information.
+	set owner (echo "$repo_data" | jq -r ".owner" | slug)
+	set repo (echo "$repo_data" | jq -r ".repo" | slug)
+
+	set name "$owner.$repo"
+
+	if [ -n "$_flag_fork" ]
+		set name "FORKED.$owner.$repo"
+	end
+
+	# Finally, clone the repository to the target directory name.
+
+	if [ -z "$_flag_branch" ]
+		git clone "$argv" "$name"
+	else
+		git clone "$argv" -b "$_flag_branch" "$name"
+	end
+end
