@@ -10,3 +10,5 @@ set -gx PATH "$PATH:$HOME/.local/bin"
 set -gx PATH "$PATH:$PNPM_HOME"
 set -gx PATH "$PATH:$HOME/go/bin"
 set -gx PATH "$PATH:$HOME/.tmux/plugins/tmuxifier/bin"
+
+set -gx ERL_MAX_PORTS "1024"
