@@ -31,20 +31,20 @@ end
 
 
 ## APPLICATION SETTINGS & SETUP:
-## 	The code below this sectio is just settings that other applications recommends
+## 	The code below this section is just settings that other applications recommends
 ##  appending to this file. Some time or another I'll organize that stuff, but its
 ##  required to be clean...
 
 #- Sourcing the ASDF script for fish shell (installed manually & from AUR).
 
-test -f "$HOME/.asdf/asdf.fish" &&
+[ -f "$HOME/.asdf/asdf.fish" ] &&
     source "$HOME/.asdf/asdf.fish" ||
-	test -f "/opt/asdf-vm/asdf.fish" &&
+	[ -f "/opt/asdf-vm/asdf.fish" ] &&
     source "/opt/asdf-vm/asdf.fish"
 
 #- Sourcing Xmake Fish profile.
 
-test -f "$HOME/.xmake/profile" &&
+[ -f "$HOME/.xmake/profile" ] &&
     source "$HOME/.xmake/profile"
 
 #- Use the tmuxifier command to generate the code completion
