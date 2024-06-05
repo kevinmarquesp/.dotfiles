@@ -3,7 +3,13 @@
 vim.api.nvim_create_autocmd("BufWrite", {
    pattern = "*",
 
-   callback = function(_)
+   callback = function(ev)
+      local EXCLUDE_MATCH = ".*(html|edge)$"
+
+      if nil == string.match(ev.file, EXCLUDE_MATCH) then
+         return
+      end
+
       vim.lsp.buf.format()
    end,
 })
