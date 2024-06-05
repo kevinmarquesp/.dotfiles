@@ -35,9 +35,9 @@ end
 
 function slug -d "Given a string, it will return a kebab slug."
 	if [ -z "$argv" ]
-		read pipe
-
-		slug "$pipe"
+		while read pipe
+			slug "$pipe"
+		end
 
 		return
 	end
