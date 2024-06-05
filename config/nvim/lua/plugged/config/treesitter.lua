@@ -16,7 +16,7 @@ treesitter.setup({
 
    highlight = {
       enable = true,
-      disable = { "html", "vim", "vue" },
+      disable = { "html", "vim", "vue", "markdown" },
       additional_vim_regex_highlighting = true,
    },
 
