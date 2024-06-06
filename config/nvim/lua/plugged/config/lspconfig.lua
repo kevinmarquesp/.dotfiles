@@ -56,7 +56,21 @@ if not status_ok then
    return
 end
 
+local lspconfig
+
+status_ok, lspconfig = pcall(require, "lspconfig")
+
+if not status_ok then
+   vim.schedule(function()
+      print("Error requiring lspconfig plugin.")
+   end)
+
+   return
+end
+
 -- the real config section starts here
+
+vim.filetype.add({ extension = { templ = 'templ' } })
 
 mason.setup()
 neodev.setup()
@@ -66,18 +80,12 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = cmp_lsp.default_capabilities(capabilities)
 
 local servers = {
-   pylsp = {
-      pylsp = {
-         plugins = {
-            pyflakes = {
-               enabled = false,
-            },
-         },
-      },
-   },
    elixirls = {
-      elixirLS = {
-         dialyzerEnabled = false,
+      capabilities = capabilities,
+      settings = {
+         elixirLS = {
+            dialyzerEnabled = false,
+         },
       },
    },
 }
@@ -88,22 +96,9 @@ mason_lspconfig.setup({
 
 mason_lspconfig.setup_handlers({
    function(server_name)
-      local lspconfig
+      local server = servers[server_name] or {}
 
-      status_ok, lspconfig = pcall(require, "lspconfig")
-
-      if not status_ok then
-         vim.schedule(function()
-            print("Error requiring lspconfig plugin.")
-         end)
-
-         return
-      end
-
-      lspconfig[server_name].setup({
-         capabilities = capabilities,
-         -- on_attach = function(_, bufnr) return end,
-         settings = servers[server_name],
-      })
+      server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
+      lspconfig[server_name].setup(server)
    end,
 })
