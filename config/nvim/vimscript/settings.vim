@@ -53,7 +53,9 @@ set cursorline colorcolumn=80
 set wildmenu
 
 syntax on
-colorscheme pablo
+if !has("nvim")
+	colorscheme pablo
+endif
 set fcs=eob:\ 
 
 set hlsearch incsearch

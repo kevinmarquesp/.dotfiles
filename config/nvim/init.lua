@@ -1,5 +1,3 @@
-require("user.loadvim")
-
 require("plugged")
 require("plugged.config.nord")
 require("plugged.config.lualine")
@@ -13,6 +11,7 @@ require("plugged.config.treesitter")
 require("plugged.config.autopairs")
 require("plugged.config.lspconfig")
 
+require("user.loadvim")
 require("user.usercmd")
 require("user.autocmd")
 require("user.keybind")
