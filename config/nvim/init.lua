@@ -1,5 +1,6 @@
 require("plugged")
-require("plugged.config.nord")
+
+require("plugged.config.onenord")
 require("plugged.config.lualine")
 require("plugged.config.bufferline")
 require("plugged.config.gitsigns")

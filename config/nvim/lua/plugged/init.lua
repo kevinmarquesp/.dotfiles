@@ -27,7 +27,7 @@ lazy.setup({
    "tpope/vim-surround",
    "andweeb/presence.nvim",
 
-   "shaunsingh/nord.nvim",
+   "rmehri01/onenord.nvim",
    "nvim-lualine/lualine.nvim",
    "lewis6991/gitsigns.nvim",
    "lukas-reineke/indent-blankline.nvim",
