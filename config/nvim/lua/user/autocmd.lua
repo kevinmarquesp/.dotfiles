@@ -1,12 +1,32 @@
+function get_extension(filename)
+   local parts = {}
+
+   for w in filename:gmatch("([^.]+)") do
+      table.insert(parts, w)
+   end
+
+   return table.concat(parts, ".", 2)
+end
+
+function contains(table, element)
+   for _, value in pairs(table) do
+      if value == element then
+         return true
+      end
+   end
+
+   return false
+end
+
 -- Will use the Neovim LSP capabilities to format the file before saving.
 
 vim.api.nvim_create_autocmd("BufWrite", {
    pattern = "*",
 
-   callback = function(ev)
-      local EXCLUDE_MATCH = ".*(html|edge)$"
+   callback = function(event)
+      local extension = get_extension(event.file)
 
-      if nil == string.match(ev.file, EXCLUDE_MATCH) then
+      if contains({ "html", "edge" }, extension) then
          return
       end
 
