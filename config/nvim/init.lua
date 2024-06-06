@@ -1,15 +1,5 @@
-require("plugged")
-require("plugged.config.nord")
-require("plugged.config.lualine")
-require("plugged.config.bufferline")
-require("plugged.config.gitsigns")
-require("plugged.config.ibl")
-require("plugged.config.telescope")
-require("plugged.config.cmp")
-require("plugged.config.luasnip")
-require("plugged.config.treesitter")
-require("plugged.config.autopairs")
-require("plugged.config.lspconfig")
+-- bootstrap lazy.nvim, LazyVim and your plugins
+require("config.lazy")
 
 require("user.loadvim")
 require("user.usercmd")
