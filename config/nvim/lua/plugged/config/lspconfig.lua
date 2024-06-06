@@ -88,6 +88,10 @@ local servers = {
          },
       },
    },
+   emmet_ls = {
+      capabilities = capabilities,
+      filetypes = { "html", "templ", "javascript", "typescript", "react" },
+   },
 }
 
 mason_lspconfig.setup({
