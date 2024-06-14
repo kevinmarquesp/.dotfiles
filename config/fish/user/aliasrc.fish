@@ -28,7 +28,7 @@ abbr  gaac 'git add :; git commit --amend -m (git log -1 --format="%s")'
 alias grep 'grep --colour=auto'
 alias bat  'batcat'
 
-alias tree 'exa --tree --group-directories-first -aF --ignore-glob=".git|node_modules|target|.mypy_cache|__pycache__|.venv"'  #bign!
+alias tree 'exa --tree --icons --group-directories-first -aF --ignore-glob=".git|node_modules|target|.mypy_cache|__pycache__|.venv"'  #bign!
 alias ll   'exa -lam --no-user --time-style long-iso --group-directories-first -s extension --icons'  #bign!
 alias l    'exa -lm --no-user --time-style long-iso --group-directories-first -s extension --icons'  #bign!
 
@@ -67,6 +67,11 @@ abbr exe 'chmod +x'
 abbr vf  'vim (fzf)'
 abbr nf  'nvim (fzf)'
 abbr bf  'bat (fzf)'
+
+abbr todo 'echo [TODO]'  #bign!
+abbr list 'history | rg -j12 \'^echo \[TODO\] ?.+$\''  #bign!
+abbr done 'set F ~/.local/share/fish/fish_history;set T ~/.cache/fh.yml;set L (rg -nj12 \'^- cmd: echo \[TODO\] ?.+$\' $F|sed \'s/- cmd: echo//\'|fzf --preview-window=hidden|cut -d: -f1);[ -n"$L" ]&&sed $L"s/\(- cmd: echo \)\[TODO\]/\1[DONE]/" $F>$T&&cat $T>$F&&exec fish' #bign!
+abbr listdone 'history | rg -j12 \'^echo \[DONE\] ?.+$\''  #bign!
 
 if grep -q 'ID=arch' /etc/os-release
 	abbr update    'sudo pacman -Syyuu'
