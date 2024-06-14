@@ -43,5 +43,6 @@
     "security.workspace.trust.untrustedFiles": "open",
     "explorer.confirmDelete": false,
     "editor.minimap.enabled": false,
-    "workbench.colorTheme": "Nord"
+    "workbench.colorTheme": "Nord",
+    "explorer.confirmDragAndDrop": false
 }
