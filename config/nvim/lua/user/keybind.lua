@@ -32,10 +32,17 @@ else
    map("n", "<leader>?", telescope_builtin.keymaps)
 end
 
-map("n", "<c-p>", telescope_builtin.find_files)
-map("n", "<leader>p", telescope_builtin.buffers)
-map("n", "<leader>r", telescope_builtin.lsp_references)
-map("n", "<leader>fc", telescope_builtin.git_commits)
-map("n", "<leader>fs", telescope_builtin.git_status)
-map("n", "<leader>fm", telescope_builtin.marks)
-map("n", "<leader>?", telescope_builtin.keymaps)
+local gitsigns
+status_ok, gitsigns = pcall(require, "gitsigns")
+
+if not status_ok then
+   vim.schedule(function()
+      print("Cannot configure Gitsigns bindings, error when requiring.")
+   end)
+else
+   map("v", "<leader>ga", gitsigns.stage_hunk)
+   map("n", "<leader>gu", gitsigns.undo_stage_hunk)
+   map("v", "<leader>gr", gitsigns.reset_hunk)
+   map("n", "<leader>gp", gitsigns.preview_hunk)
+   map("n", "<leader>gP", gitsigns.preview_hunk_inline)
+end
