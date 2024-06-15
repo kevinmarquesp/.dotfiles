@@ -38,7 +38,6 @@ au CursorHold * checktime
 au BufWinEnter *.txt set ft=help
 autocmd BufNewFile,BufRead *.edge set filetype=html
 autocmd BufNewFile,BufRead *.ino set filetype=cpp
-autocmd BufNewFile,BufRead *.md set textwidth=80
 
 if !has("nvim")
     au BufWinEnter *.ino set ft=cpp
