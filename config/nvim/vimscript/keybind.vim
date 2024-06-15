@@ -82,11 +82,11 @@ autocmd FileType netrw nnoremap <buffer> <leader>n <c-6>
 
 nnoremap <leader><c-w> :setl wrap!<cr>
 nnoremap <leader>: :set number! relativenumber!<cr>
-nnoremap <leader>I :set expandtab smartindent breakindent linebreak<cr>
+nnoremap <leader>II :set expandtab!<cr>
 
-nnoremap <leader>1 :set shiftwidth=2 tabstop=2<cr>
-nnoremap <leader>2 :set shiftwidth=4 tabstop=4<cr>
-nnoremap <leader>3 :set shiftwidth=8 tabstop=8<cr>
+nnoremap <leader>I1 :set shiftwidth=2 tabstop=2<cr>
+nnoremap <leader>I2 :set shiftwidth=4 tabstop=4<cr>
+nnoremap <leader>I3 :set shiftwidth=8 tabstop=8<cr>
 
 nnoremap <leader>- :set colorcolumn=80<cr>
 nnoremap <leader>+ :set colorcolumn=120<cr>
