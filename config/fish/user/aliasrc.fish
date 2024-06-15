@@ -68,10 +68,10 @@ abbr vf  'vim (fzf)'
 abbr nf  'nvim (fzf)'
 abbr bf  'bat (fzf)'
 
-abbr todo 'echo [TODO]'  #bign!
-abbr list 'history | rg -j12 \'^echo \[TODO\] ?.+$\''  #bign!
-abbr done 'set F ~/.local/share/fish/fish_history;set T ~/.cache/fh.yml;set L (rg -nj12 \'^- cmd: echo \[TODO\] ?.+$\' $F|sed \'s/- cmd: echo//\'|fzf --preview-window=hidden|cut -d: -f1);[ -n"$L" ]&&sed $L"s/\(- cmd: echo \)\[TODO\]/\1[DONE]/" $F>$T&&cat $T>$F&&exec fish' #bign!
-abbr listdone 'history | rg -j12 \'^echo \[DONE\] ?.+$\''  #bign!
+abbr  todo 'echo [TODO]'  #bign!
+alias done 'set F ~/.local/share/fish/fish_history;set T ~/.cache/fh.yml;set L (rg -nj12 \'^- cmd: echo \[TODO\] ?.+$\' $F|sed \'s/- cmd: echo//\'|fzf --preview-window=hidden|cut -d: -f1);[ -n"$L" ]&&sed $L"s/\(- cmd: echo \)\[TODO\]/\1[DONE]/" $F>$T&&cat $T>$F&&exec fish' #bign!
+abbr  todols 'history|rg -j12 \'^echo \[TODO\] ?.+$\'|sed \'s/^echo //\''  #bign!
+abbr  donels 'history|rg -j12 \'^echo \[DONE\] ?.+$\'|sed \'s/^echo //\''  #bign!
 
 if grep -q 'ID=arch' /etc/os-release
 	abbr update    'sudo pacman -Syyuu'
