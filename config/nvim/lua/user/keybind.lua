@@ -41,6 +41,7 @@ if not status_ok then
    end)
 else
    map("n", "<leader>ga", gitsigns.stage_hunk)
+   map("n", "<leader>gA", gitsigns.stage_buffer)
    map("n", "<leader>gr", gitsigns.reset_hunk)
    map("n", "<leader>gu", gitsigns.undo_stage_hunk)
    map("n", "<leader>gp", gitsigns.preview_hunk)
