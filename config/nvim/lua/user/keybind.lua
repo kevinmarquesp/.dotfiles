@@ -22,8 +22,14 @@ if not status_ok then
    vim.schedule(function()
       print("Cannot configure Telescope bindings, error when requiring.")
    end)
-
-   return
+else
+   map("n", "<c-p>", telescope_builtin.find_files)
+   map("n", "<leader>p", telescope_builtin.buffers)
+   map("n", "<leader>r", telescope_builtin.lsp_references)
+   map("n", "<leader>fc", telescope_builtin.git_commits)
+   map("n", "<leader>fs", telescope_builtin.git_status)
+   map("n", "<leader>fm", telescope_builtin.marks)
+   map("n", "<leader>?", telescope_builtin.keymaps)
 end
 
 map("n", "<c-p>", telescope_builtin.find_files)
