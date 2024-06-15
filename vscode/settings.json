@@ -6,6 +6,7 @@
     "editor.fontWeight": "bold",
     "editor.fontSize": 12,
     "editor.fontLigatures": true,
+    "editor.lineNumbers": "relative",
     
     "terminal.integrated.defaultProfile.linux": "fish",
     "terminal.integrated.allowChords": false,
@@ -29,7 +30,6 @@
         { "before": ["<leader>", "."], "after": ["A", ".", "<esc>"] },
         { "before": ["<leader>", ","], "after": ["A", ",", "<esc>"] },
         { "before": ["<leader>", ";"], "after": ["A", ";", "<esc>"] },
-        { "before": ["<leader>", ":"], "after": ["A", ":", "<esc>"] },
         { "before": ["<leader>", "q"], "commands": [":q"] },
         { "before": ["<leader>", "Q"], "commands": [":qa!"] },
         { "before": ["<tab>"], "commands": [":bn"] },
