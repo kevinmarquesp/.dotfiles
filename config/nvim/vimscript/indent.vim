@@ -1,4 +1,4 @@
-set noexpandtab smartindent breakindent linebreak
+set autoindent noexpandtab smartindent breakindent linebreak
 set shiftwidth=4 tabstop=4 formatoptions=1
 
 autocmd BufNewFile,BufRead *.md set textwidth=80
