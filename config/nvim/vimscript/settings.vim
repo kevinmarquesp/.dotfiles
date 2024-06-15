@@ -12,7 +12,7 @@ endif
 set path+=**
 set path-=**/node_modules/**
 
-set timeoutlen=200
+set timeoutlen=720
 set mouse=a
 set nocompatible
 set updatetime=50
