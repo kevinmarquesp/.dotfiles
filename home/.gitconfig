@@ -37,10 +37,16 @@
     bn = checkout -b
     m = checkout main
 
+	# stash related
+	ss = stash save
+	sa = stash apply
+	sl = stash list --pretty=\"%C(yellow)%h %Cgreen%cr%C(white): %gs\"
+
     # remote repo hendler
     rao = remote add origin
     psuo = push --set-upstream origin
     psuom = push --set-upstream origin main
+    psuod = push --set-upstream origin dev
 
     # show a cool graph of all commits
     hist = log --graph --name-status --pretty=format:\"%C(red)%h %C(reset)(%cd) %C(green)%an %Creset%s %C(yellow)%d%Creset\" --date=relative
