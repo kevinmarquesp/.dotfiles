@@ -40,6 +40,8 @@ if not status_ok then
       print("Cannot configure Gitsigns bindings, error when requiring.")
    end)
 else
+   map("v", "<leader>ga", gitsigns.stage_hunk)
+   map("v", "<leader>gr", gitsigns.reset_hunk)
    map("n", "<leader>ga", gitsigns.stage_hunk)
    map("n", "<leader>gA", gitsigns.stage_buffer)
    map("n", "<leader>gr", gitsigns.reset_hunk)
