@@ -29,6 +29,7 @@
     s = status --short --branch
     r = restore
     rs = restore --staged
+	t = tag --annotate
 
     # push related aliasses
     p = push
