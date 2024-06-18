@@ -44,5 +44,6 @@
     "explorer.confirmDelete": false,
     "editor.minimap.enabled": false,
     "workbench.colorTheme": "Nord",
-    "explorer.confirmDragAndDrop": false
+    "explorer.confirmDragAndDrop": false,
+    "cmake.showOptionsMovedNotification": false
 }
