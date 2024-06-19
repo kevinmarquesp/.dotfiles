@@ -52,14 +52,13 @@ alias fzf 'fzf --preview "batcat --color=always --style=numbers \
                                  --line-range=:500 {}" \
                --ansi \
                --border sharp \
-               --margin 10% \
-               --padding 5% \
+               --margin 5% \
                --info inline \
                --prompt "   " \
                --pointer "->" \
                --color "bg+:-1,pointer:green,fg+:green,hl:yellow,border:gray"'  #bign!
 
-#binc: alias fzf="fzf --border sharp --margin 10% --padding 5% --info inline \
+#binc: alias fzf="fzf --border sharp --margin 5% --info inline \
 #binc:            --prompt 'SEARCH: ' --pointer '**' --ansi \
 #binc:            --color 'bg+:-1,pointer:green,fg+:green,hl:yellow,border:gray'"
 
