@@ -23,11 +23,11 @@ function update_bashrc -d "Convert the fish/user/ files to a single ~/.bashrc fi
 	echo "##  More information at: http://github.com/kevinmarquesp" >> "$BRC"
 
 	#- Actually parse the Fish config to Bash script, it's a little complicated, I know...
-	sed 's/^#.*//;/^ *$/d;s/  */ /g;s/^set [^ ]* \([^ ]*\) /export \1=/' "$GVARS_FILE" >> "$BRC"                       #- Minify & parse the 'set -gx' syntax to 'export VARNAME='.
-	awk '/\\\\$/ {printf("%s",substr($0,1,length($0)-1))} !/\\\\$/ {print}' "$ALIASRC_FILE" |                          #- Concatenate the lines ending with \ to the next one.
-		sed 's/  */ /g;/^ *$/d;/#bign!/d;s/#binc: //g;/^#.*/d' |                                                       #- Include and exclude the commented Bash lines.
-		sed 's/^if\(.*\)$/if\1; then/;s/end/fi/g;s/(\(.*\))/$(\1)/g;s/abbr/alias/;s/\(alias [^ =]*\) /\1=/' >> "$BRC"  #- Parse some of the Fish syntax to Bash.
-	sed 's/^#.*//;/^ *$/d' "$BASHPROMPT_FILE" >> "$BRC"                                                              #- Minify, just that...
+	sed '/.*#bign! *$/d;s/^ *#binc: *//;s/^#.*//;/^ *$/d;s/  */ /g;s/^set [^ ]* \([^ ]*\) /export \1=/' "$GVARS_FILE" >> "$BRC"  #- Minify & parse the 'set -gx' syntax to 'export VARNAME='.
+	awk '/\\\\$/ {printf("%s",substr($0,1,length($0)-1))} !/\\\\$/ {print}' "$ALIASRC_FILE" |                                    #- Concatenate the lines ending with \ to the next one.
+		sed 's/  */ /g;/^ *$/d;/#bign!/d;s/#binc: //g;/^#.*/d' |                                                                 #- Include and exclude the commented Bash lines.
+		sed 's/^if\(.*\)$/if\1; then/;s/end/fi/g;s/(\(.*\))/$(\1)/g;s/abbr/alias/;s/\(alias [^ =]*\) /\1=/' >> "$BRC"            #- Parse some of the Fish syntax to Bash.
+	sed 's/^#.*//;/^ *$/d' "$BASHPROMPT_FILE" >> "$BRC"                                                                          #- Minify, just that...
 
 	printf "%s[SUCCESS]%s: %s~/.bashrc%s file updated!\n\n" \
 		(set_color green) (set_color normal) (set_color -i cyan) (set_color normal)
