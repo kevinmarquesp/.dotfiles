@@ -6,13 +6,14 @@
 ##  More information at: http://github.com/kevinmarquesp
 export BAT_THEME="Nord"
 export FZF_DEFAULT_COMMAND='find . -type f -not -path "*/node_modules/*" -not -path "*/.git/*" | sed "s/^\.\///"'
-export EDITOR="vim"
 export VIRTUAL_ENV_DISABLE_PROMPT=1
+export EDITOR="vim"
 export PNPM_HOME="$HOME/.local/share/pnpm"
 export PATH="/bin:/usr/bin:/usr/local/bin"
 export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:$PNPM_HOME"
 export PATH="$PATH:$HOME/go/bin"
+export PATH="$PATH:/usr/bin/vendor_perl"
 export PATH="$PATH:$HOME/.tmux/plugins/tmuxifier/bin"
 export ERL_MAX_PORTS="1024"
 alias r='rm -rf'
@@ -43,7 +44,7 @@ alias ard-ls='arduino-cli board list'
 alias ard-install='arduino-cli lib install'
 alias ard-uninstall='arduino-cli lib uninstall'
 alias ard-new='arduino-cli sketch new'
-alias fzf="fzf --border sharp --margin 10% --padding 5% --info inline --prompt 'SEARCH: ' --pointer '**' --ansi --color 'bg+:-1,pointer:green,fg+:green,hl:yellow,border:gray'"
+alias fzf="fzf --border sharp --margin 5% --info inline --prompt 'SEARCH: ' --pointer '**' --ansi --color 'bg+:-1,pointer:green,fg+:green,hl:yellow,border:gray'"
 alias exe='chmod +x'
 alias vf='vim $(fzf)'
 alias nf='nvim $(fzf)'
