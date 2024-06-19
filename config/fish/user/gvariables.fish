@@ -1,7 +1,9 @@
 set -gx BAT_THEME "Nord"
 set -gx FZF_DEFAULT_COMMAND 'find . -type f -not -path "*/node_modules/*" -not -path "*/.git/*" | sed "s/^\.\///"'
-set -gx EDITOR "vim"
+set -gx EDITOR "nvim"  #bign!
 set -gx VIRTUAL_ENV_DISABLE_PROMPT 1
+
+#binc: export EDITOR="vim"
 
 set -gx PNPM_HOME "$HOME/.local/share/pnpm"
 
