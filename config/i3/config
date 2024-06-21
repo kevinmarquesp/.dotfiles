@@ -83,7 +83,8 @@ bindsym $mod+s exec --no-startup-id xfce4-screenshooter -rc
 bindsym $mod+Ctrl+s mode "print"
 
 #write the current date
-bindsym --release $mod+d exec --no-startup-id bash -c 'date +%Y-%m-%d_at-%H%M%S | xclip -selection clipboard'
+bindsym --release $mod+Shift+d exec --no-startup-id bash -c 'date +%Y-%m-%d_at-%H%M%S | xclip -selection clipboard'
+bindsym --release $mod+d exec --no-startup-id bash -c 'date +%y%m%d-%H%M | xclip -selection clipboard'
 
 
 ## Base window manipulation keybinds
