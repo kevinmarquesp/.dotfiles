@@ -28,4 +28,6 @@ au BufWinEnter *.exs setl shiftwidth=2 tabstop=2 expandtab
 au BufWinEnter *.md setl shiftwidth=2 tabstop=2 expandtab
 au BufWinEnter *.tsx setl shiftwidth=2 tabstop=2 expandtab
 au BufWinEnter *.jsx setl shiftwidth=2 tabstop=2 expandtab
+au BufWinEnter *.asd setl shiftwidth=2 tabstop=2 expandtab
+au BufWinEnter *.lisp setl shiftwidth=2 tabstop=2 expandtab
 au BufWinEnter *.lua setl shiftwidth=3 tabstop=3 expandtab
