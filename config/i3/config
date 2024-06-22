@@ -86,6 +86,9 @@ bindsym $mod+Ctrl+s mode "print"
 bindsym --release $mod+Shift+d exec --no-startup-id bash -c 'date +%Y-%m-%d_at-%H%M%S | xclip -selection clipboard'
 bindsym --release $mod+d exec --no-startup-id bash -c 'date +%y%m%d-%H%M | xclip -selection clipboard'
 
+#fix the text wrap for longer text
+bindsym --release $mod+Shift+p exec --no-startup-id bash -c 'xclip -o | fold -w 80 -s | xclip -selection clipboard && xdotool key --delay 175 "ctrl+v"'
+
 
 ## Base window manipulation keybinds
 ## ---------------------------------
