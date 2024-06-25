@@ -13,5 +13,6 @@ set -gx PATH "$PATH:$PNPM_HOME"
 set -gx PATH "$PATH:$HOME/go/bin"
 set -gx PATH "$PATH:/usr/bin/vendor_perl"
 set -gx PATH "$PATH:$HOME/.tmux/plugins/tmuxifier/bin"
+set -gx PATH "$PATH:$HOME/.config/emacs/bin"
 
 set -gx ERL_MAX_PORTS "1024"
