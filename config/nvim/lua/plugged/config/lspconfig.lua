@@ -71,6 +71,7 @@ end
 -- the real config section starts here
 
 vim.filetype.add({ extension = { templ = 'templ' } })
+vim.filetype.add({ extension = { astro = 'astro' } })
 
 mason.setup()
 neodev.setup()
@@ -90,7 +91,7 @@ local servers = {
    },
    emmet_ls = {
       capabilities = capabilities,
-      filetypes = { "html", "templ", "javascript", "typescript", "typescriptreact", "javascriptreact" },
+      filetypes = { "html", "templ", "javascript", "typescript", "typescriptreact", "javascriptreact", "edge", "astro" },
    },
    html = {
       on_attach = function(client, _)
