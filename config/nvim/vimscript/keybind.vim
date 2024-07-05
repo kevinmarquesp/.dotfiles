@@ -91,6 +91,21 @@ nnoremap <leader>I3 :set shiftwidth=8 tabstop=8<cr>
 nnoremap <leader>- :set colorcolumn=80<cr>
 nnoremap <leader>+ :set colorcolumn=120<cr>
 
+" Using The Number Keys To Create Bookmarks:
+" Maybe it's just overkill, but I found more ease to press space + 1 than '
+" and a number...
+
+nnoremap <leader>0 '0
+nnoremap <leader>1 '1
+nnoremap <leader>2 '2
+nnoremap <leader>3 '3
+nnoremap <leader>4 '4
+nnoremap <leader>5 '5
+nnoremap <leader>6 '6
+nnoremap <leader>7 '7
+nnoremap <leader>8 '8
+nnoremap <leader>9 '9
+
 " Little Hacks And Formating Bindings Related:
 "	This binding I created by myself for myself, gotta go fast. Maybe this
 "	section wont be that useful for you, sorry.
