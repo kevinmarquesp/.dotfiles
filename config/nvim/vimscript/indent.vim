@@ -32,4 +32,5 @@ au BufWinEnter *.html setl shiftwidth=2 tabstop=2 noexpandtab
 " au BufWinEnter *.js setl shiftwidth=2 tabstop=2 expandtab
 " au BufWinEnter *.asd setl shiftwidth=2 tabstop=2 expandtab
 " au BufWinEnter *.lisp setl shiftwidth=2 tabstop=2 expandtab
+au BufWinEnter *.go setl shiftwidth=4 tabstop=4
 au BufWinEnter *.lua setl shiftwidth=3 tabstop=3 expandtab
