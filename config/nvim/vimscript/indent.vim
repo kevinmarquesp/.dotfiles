@@ -34,3 +34,9 @@ au BufWinEnter *.html setl shiftwidth=2 tabstop=2 noexpandtab
 " au BufWinEnter *.lisp setl shiftwidth=2 tabstop=2 expandtab
 au BufWinEnter *.go setl shiftwidth=4 tabstop=4
 au BufWinEnter *.lua setl shiftwidth=3 tabstop=3 expandtab
+
+" Code Folding Configuration:
+" It is not quite related to indentation, but I think that makes sense to fold
+" parts of the code based on the syntax to improve context readability.
+
+set foldmethod=syntax
