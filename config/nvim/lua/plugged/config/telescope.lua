@@ -8,6 +8,18 @@ if not status_ok then
    return
 end
 
+local action_state
+
+status_ok, action_state = pcall(require, "telescope.actions.state")
+
+if not status_ok then
+   vim.schedule(function()
+      print("Error requiring telescope.actions.state plugin module.")
+   end)
+
+   return
+end
+
 local sorters
 
 status_ok, sorters = pcall(require, "telescope.sorters")
@@ -61,10 +73,19 @@ require("telescope").setup({
 
       mappings = {
          i = {
-            ["<C-k>"] = actions.move_selection_previous,
-            ["<C-j>"] = actions.move_selection_next,
-            ["<C-l>"] = actions.close,
-            ["<C-p>"] = actions.close,
+            ["<c-k>"] = actions.move_selection_previous,
+            ["<c-j>"] = actions.move_selection_next,
+            ["<c-l>"] = actions.close,
+            ["<c-p>"] = actions.close,
+            ["<cr>"] = function(prompt_bufnr) -- HOTFIX: Custom action to apply my custom fonding config.
+               local selection = action_state.get_selected_entry()
+               local foldmethod = vim.api.nvim_exec('set foldmethod?', true):match('foldmethod=(%S+)')
+
+               actions.close(prompt_bufnr)
+
+               vim.cmd("edit " .. selection.value)
+               vim.cmd("set foldmethod=" .. foldmethod)
+            end
          },
       },
 
