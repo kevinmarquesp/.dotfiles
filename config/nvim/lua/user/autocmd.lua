@@ -3,7 +3,7 @@
 vim.api.nvim_create_autocmd("BufWrite", {
    pattern = "*",
 
-   callback = function(event)
+   callback = function(_event)
       vim.lsp.buf.format()
    end,
 })
