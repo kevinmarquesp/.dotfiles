@@ -11,35 +11,35 @@ clr_re=$'\001'$(tput sgr 0 2>/dev/null || echo $'\e[0m')$'\002'
 # dereference git symbolic reference HEAD to get branch name or sha1 of commit
 # object and amend by information about current status of staging area
 function dereference_gi {
-    local sha1
-    sha1=$(git rev-parse --short HEAD 2>&1)
+	local sha1
+	sha1=$(git rev-parse --short HEAD 2>&1)
 
-    if [ $? -eq 0 ]; then
-        local clr_symref=$clr_gr
-        local clr_ref=$clr_bl
-        local dirty=$(git status --porcelain 2>&1)
+	if [ $? -eq 0 ]; then
+		local clr_symref=$clr_gr
+		local clr_ref=$clr_bl
+		local dirty=$(git status --porcelain 2>&1)
 
-        if [ ! -z "$dirty" ]; then
-            clr_symref=$clr_rd
-            clr_ref=$clr_rd
-            dirty='*'
-        fi
+		if [ ! -z "$dirty" ]; then
+			clr_symref=$clr_rd
+			clr_ref=$clr_rd
+			dirty='*'
+		fi
 
-        GIT_HE="$clr_symref($(git symbolic-ref --quiet --short HEAD)$dirty)$clr_re "
+		GIT_HE="$clr_symref($(git symbolic-ref --quiet --short HEAD)$dirty)$clr_re "
 
-        if [ $? -ne 0 ]; then
-            GIT_HE="$clr_ref[$sha1$dirty]$clr_re"
-        fi
-    else
-        GIT_HE=""
-    fi
+		if [ $? -ne 0 ]; then
+			GIT_HE="$clr_ref[$sha1$dirty]$clr_re"
+		fi
+	else
+		GIT_HE=""
+	fi
 }
 
 # run command before bash takes PS1 to build prompt
 PROMPT_CO="dereference_gi; $PROMPT_CO"
 
 if [ $USER = "root" ]; then
-    PS1="${clr_rd}[\u@\h] ${clr_re}\W ${GIT_HE}${clr_rd}# ${clr_re}"
+	PS1="${clr_rd}[\u@\h] ${clr_re}\W ${GIT_HE}${clr_rd}# ${clr_re}"
 else
-    PS1="${clr_gr}[\u@\h] ${clr_re}\W ${GIT_HE}${clr_gr}\$ ${clr_re}"
+	PS1="${clr_gr}[\u@\h] ${clr_re}\W ${GIT_HE}${clr_gr}\$ ${clr_re}"
 fi

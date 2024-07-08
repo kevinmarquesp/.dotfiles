@@ -1,20 +1,12 @@
 set autoindent noexpandtab smartindent breakindent linebreak
-set shiftwidth=4 tabstop=4 formatoptions=1
+set shiftwidth=2 tabstop=2 formatoptions=1 expandtab
 autocmd BufNewFile,BufRead *.md set textwidth=80
-au BufWinEnter *.templ setl shiftwidth=2 tabstop=2
-au BufWinEnter *.edge setl shiftwidth=2 tabstop=2
-au BufWinEnter *.html setl shiftwidth=2 tabstop=2
-au BufWinEnter *.cpp setl shiftwidth=2 tabstop=2 expandtab
-au BufWinEnter *.ino setl shiftwidth=2 tabstop=2 expandtab
-au BufWinEnter *.c setl shiftwidth=2 tabstop=2 expandtab
-au BufWinEnter *.h setl shiftwidth=2 tabstop=2 expandtab
-au BufWinEnter *.hpp setl shiftwidth=2 tabstop=2 expandtab
-au BufWinEnter *.ex setl shiftwidth=2 tabstop=2 expandtab
-au BufWinEnter *.exs setl shiftwidth=2 tabstop=2 expandtab
-au BufWinEnter *.md setl shiftwidth=2 tabstop=2 expandtab
-au BufWinEnter *.tsx setl shiftwidth=2 tabstop=2 expandtab
-au BufWinEnter *.jsx setl shiftwidth=2 tabstop=2 expandtab
+au BufWinEnter *.templ setl shiftwidth=2 tabstop=2 noexpandtab
+au BufWinEnter *.edge setl shiftwidth=2 tabstop=2 noexpandtab
+au BufWinEnter *.html setl shiftwidth=2 tabstop=2 noexpandtab
+au BufWinEnter *.go setl shiftwidth=4 tabstop=4
 au BufWinEnter *.lua setl shiftwidth=3 tabstop=3 expandtab
+set foldmethod=syntax
 let mapleader="\<space>"
 inoremap <c-l> <esc>
 vnoremap <c-l> <esc>
@@ -74,6 +66,16 @@ nnoremap <leader>I2 :set shiftwidth=4 tabstop=4<cr>
 nnoremap <leader>I3 :set shiftwidth=8 tabstop=8<cr>
 nnoremap <leader>- :set colorcolumn=80<cr>
 nnoremap <leader>+ :set colorcolumn=120<cr>
+nnoremap <leader>0 '0
+nnoremap <leader>1 '1
+nnoremap <leader>2 '2
+nnoremap <leader>3 '3
+nnoremap <leader>4 '4
+nnoremap <leader>5 '5
+nnoremap <leader>6 '6
+nnoremap <leader>7 '7
+nnoremap <leader>8 '8
+nnoremap <leader>9 '9
 inoremap <c-k> <cr><esc>O
 nnoremap <leader>gg mzgg=G"z
 nnoremap <leader><leader> @
