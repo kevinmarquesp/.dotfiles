@@ -89,10 +89,12 @@ local servers = {
          },
       },
    },
+
    emmet_ls = {
       capabilities = capabilities,
-      filetypes = { "html", "templ", "javascript", "typescript", "typescriptreact", "javascriptreact", "edge", "astro" },
+      filetypes = { "html", "templ", "typescriptreact", "javascriptreact", "edge", "astro" },
    },
+
    html = {
       on_attach = function(client, _)
          client.server_capabilities.documentFormattingProvider = false
@@ -100,7 +102,17 @@ local servers = {
       end,
 
       capabilities = capabilities,
-   }
+   },
+
+   cssls = {
+      settings = {
+         css = {
+            lint = {
+               unknownAtRules = "ignore",
+            },
+         },
+      },
+   },
 }
 
 mason_lspconfig.setup({
