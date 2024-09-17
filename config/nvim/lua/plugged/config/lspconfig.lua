@@ -92,7 +92,7 @@ local servers = {
 
    emmet_ls = {
       capabilities = capabilities,
-      filetypes = { "html", "templ", "typescriptreact", "javascriptreact", "edge", "astro" },
+      filetypes = { "html", "templ", "typescriptreact", "javascriptreact", "edge", "astro", "htmldjango" },
    },
 
    html = {

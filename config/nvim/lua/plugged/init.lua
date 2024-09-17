@@ -25,7 +25,7 @@ end
 lazy.setup({
    "kyazdani42/nvim-web-devicons",
    "tpope/vim-surround",
-   "andweeb/presence.nvim",
+   -- "andweeb/presence.nvim",
 
    "rmehri01/onenord.nvim",
    "nvim-lualine/lualine.nvim",

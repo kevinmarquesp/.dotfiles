@@ -106,6 +106,17 @@ nnoremap <leader>7 '7
 nnoremap <leader>8 '8
 nnoremap <leader>9 '9
 
+vnoremap <leader>0 '0
+vnoremap <leader>1 '1
+vnoremap <leader>2 '2
+vnoremap <leader>3 '3
+vnoremap <leader>4 '4
+vnoremap <leader>5 '5
+vnoremap <leader>6 '6
+vnoremap <leader>7 '7
+vnoremap <leader>8 '8
+vnoremap <leader>9 '9
+
 " Little Hacks And Formating Bindings Related:
 "	This binding I created by myself for myself, gotta go fast. Maybe this
 "	section wont be that useful for you, sorry.
