@@ -10,7 +10,8 @@ pacman = [
   "lxappearance", "brightnessctl", "nitrogen", "yq", "ranger", "mpv",
   "duf", "make", "openssh", "nemo", "noto-fonts-cjk", "clang", "gcc", "neovim",
   "unzip", "zip", "fish", "inetutils", "exa", "picom", "btop", "keepassxc",
-  "tmux", "xed", "fzf", "rlwrap", "curl", "bat"
+  "tmux", "xed", "fzf", "rlwrap", "curl", "bat", "podman", "fuse-overlayfs",
+  "podman-compose", "obsidian", "imagemagick"
 ]
 yay = [
   "ttf-firacode-nerd", "discord", "nordic-theme", "papirus-nord",
