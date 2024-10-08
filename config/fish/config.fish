@@ -19,14 +19,14 @@ fish_vi_key_bindings  #- Enables the VI mode, now I can use <c-p> to go into nor
 set FISH_HOME "$HOME/.config/fish"
 
 if [ ! -f "$FISH_HOME/functions/fisher.fish" ]
-	set FISHER_ORIGIN 'https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish'
-	set FISHER_TARGET "$FISH_HOME/functions/fisher.fish"
+  set FISHER_ORIGIN 'https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish'
+  set FISHER_TARGET "$FISH_HOME/functions/fisher.fish"
 
-    mkdir -p "$FISH_HOME/functions"
-    curl -sL "$FISHER_ORIGIN" > "$FISHER_TARGET"
+  mkdir -p "$FISH_HOME/functions"
+  curl -sL "$FISHER_ORIGIN" > "$FISHER_TARGET"
 
-	fish -c 'fisher update' &&
-		exec "fish"  #- Replaces the current Fish session to a new one
+  fish -c 'fisher update' &&
+  exec "fish"  #- Replaces the current Fish session to a new one
 end
 
 
@@ -38,17 +38,18 @@ end
 #- Sourcing the ASDF script for fish shell (installed manually & from AUR).
 
 [ -f "$HOME/.asdf/asdf.fish" ] &&
-    source "$HOME/.asdf/asdf.fish" ||
-	[ -f "/opt/asdf-vm/asdf.fish" ] &&
-    source "/opt/asdf-vm/asdf.fish"
+  source "$HOME/.asdf/asdf.fish"
+
+[ -f "/opt/asdf-vm/asdf.fish" ] &&
+  source "/opt/asdf-vm/asdf.fish"
 
 #- Sourcing Xmake Fish profile.
 
 [ -f "$HOME/.xmake/profile" ] &&
-    source "$HOME/.xmake/profile"
+  source "$HOME/.xmake/profile"
 
 #- Use the tmuxifier command to generate the code completion
 
 if which tmuxifier &>/dev/null
-	eval (tmuxifier init - fish)
+  eval (tmuxifier init - fish)
 end
