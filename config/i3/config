@@ -28,7 +28,7 @@ exec --no-startup-id nitrogen --restore
 
 ## Define the correct workspace to move when the application is started
 
-for_window [class="obsidian"] move to workspace $ws1
+for_window [class="obsidian"] move to workspace $ws8
 for_window [class="discord"] move to workspace $ws10
 
 ## -----------------
