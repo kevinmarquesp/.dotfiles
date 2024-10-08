@@ -1,0 +1,19 @@
+[arch]
+pacman = [
+  "base", "base-devel", "linux", "linux-firmware", "mesa", "lib32-mesa",
+  "vulkan-radeon", "vim", "git", "iwd", "btrfs-progs", "ntfs-3g", "jq",
+  "man", "lightdm", "i3-wm", "xorg-server", "alacritty", "firefox",
+  "pipewire-pulse", "pipewire", "sudo", "lightdm-gtk-greeter", "i3status",
+  "dunst", "rofi", "xclip", "less", "libva-utils", "libva-mesa-driver",
+  "sxiv", "gimp", "maim", "libnotify", "xdotool", "xorg-xrandr", "tree",
+  "snapper", "cron", "snap-pac", "neofetch", "noto-fonts-emoji",
+  "lxappearance", "brightnessctl", "nitrogen", "yq", "ranger", "mpv",
+  "duf", "make", "openssh", "nemo", "noto-fonts-cjk", "clang", "gcc", "neovim",
+  "unzip", "zip", "fish", "inetutils", "exa", "picom", "btop", "keepassxc",
+  "tmux", "xed", "fzf", "rlwrap", "curl", "bat"
+]
+yay = [
+  "ttf-firacode-nerd", "discord", "nordic-theme", "papirus-nord",
+  "nordzy-cursors", "visual-studio-code-bin", "onlyoffice-bin",
+  "betterdiscord-installer-bin"
+]
