@@ -1,0 +1,152 @@
+[alias]
+
+  i = init
+  ib = init --bare
+  a = add
+  l = log --pretty=oneline -n 20 --graph --abbrev-commit
+  s = status -s
+  c = commit
+  cfg = config
+  d = !"git diff-index --quiet HEAD -- || clear; git --no-pager diff --patch-with-stat"
+  di = !"d() { git diff --patch-with-stat HEAD~$1; }; git diff-index --quiet HEAD -- || clear; d"
+  p = pull --recurse-submodules
+  cl = clone --recursive
+  ca = !git add ':(exclude,attr:builtin_objectmode=160000)' && git commit -av
+  go = "!f() { git checkout -b \"$1\" 2> /dev/null || git checkout \"$1\"; }; f"
+  tags = tag -l
+  branches = branch --all
+  remotes = remote --verbose
+  aliases = config --get-regexp alias
+  amend = commit --amend --reuse-message=HEAD
+  credit = "!f() { git commit --amend --author \"$1 <$2>\" -C HEAD; }; f"
+  reb = "!r() { git rebase -i HEAD~$1; }; r"
+  retag = "!r() { git tag -d $1 && git push origin :refs/tags/$1 && git tag $1; }; r"
+  fb = "!f() { git branch -a --contains $1; }; f"
+  ft = "!f() { git describe --always --contains $1; }; f"
+  fc = "!f() { git log --pretty=format:'%C(yellow)%h  %Cblue%ad  %Creset%s%Cgreen  [%cn] %Cred%d' --decorate --date=short -S$1; }; f"
+  fm = "!f() { git log --pretty=format:'%C(yellow)%h  %Cblue%ad  %Creset%s%Cgreen  [%cn] %Cred%d' --decorate --date=short --grep=$1; }; f"
+  dm = "!git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d"
+  contributors = shortlog --summary --numbered
+  whoami = config user.email
+
+
+[apply]
+
+  whitespace = fix
+
+
+[branch]
+
+  sort = -committerdate
+
+
+[core]
+
+  whitespace = space-before-tab,-indent-with-non-tab,trailing-space
+  trustctime = false
+  precomposeunicode = false
+  untrackedCache = true
+
+
+[color]
+
+  ui = auto
+
+
+[color "branch"]
+
+  current = yellow reverse
+  local = yellow
+  remote = green
+
+
+[color "diff"]
+
+  meta = yellow bold
+  frag = magenta bold 
+  old = red 
+  new = green 
+
+
+[color "status"]
+
+  added = yellow
+  changed = green
+  untracked = cyan
+
+
+[commit]
+
+	gpgsign = true
+
+
+[diff]
+
+  renames = copies
+
+
+[diff "bin"]
+
+  textconv = hexdump -v -C
+
+
+[help]
+
+  autocorrect = 1
+
+
+[merge]
+
+  log = true
+
+
+[push]
+
+  default = simple
+  followTags = true
+
+
+[url "git@github.com:"]
+
+  insteadOf = "gh:"
+  pushInsteadOf = "github:"
+  pushInsteadOf = "git://github.com/"
+
+
+[url "git://github.com/"]
+
+  insteadOf = "github:"
+
+
+[url "git@gist.github.com:"]
+
+  insteadOf = "gst:"
+  pushInsteadOf = "gist:"
+  pushInsteadOf = "git://gist.github.com/"
+
+
+[url "git://gist.github.com/"]
+
+  insteadOf = "gist:"
+
+
+[init]
+
+  defaultBranch = main
+
+
+[gpg]
+
+  format = ssh
+
+
+[user]
+
+  signingkey = /home/kevin/.ssh/id_ed25519.pub
+  name = Kevin Marques
+  email = kevinmarquesp478@protonmail.com
+
+
+[gpg "ssh"]
+
+  allowedSignersFile = /home/kevin/.ssh/allowed_signers
