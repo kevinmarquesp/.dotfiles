@@ -1,11 +1,13 @@
 [alias]
 
+  a = add
   i = init
   ib = init --bare
   a = add
   l = log --pretty=oneline -n 20 --graph --abbrev-commit
   s = status -s
   c = commit
+  b = branch
   cfg = config
   d = !"git diff-index --quiet HEAD -- || clear; git --no-pager diff --patch-with-stat"
   di = !"d() { git diff --patch-with-stat HEAD~$1; }; git diff-index --quiet HEAD -- || clear; d"

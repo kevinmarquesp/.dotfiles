@@ -53,7 +53,8 @@ export PATH="${PATH}:${HOME}/.config/emacs/bin"
 export PATH="${PATH}:${HOME}/.nix-profile/bin"
 
 # custom aliasses
-alias dot="git --git-dir='\${HOME}/.local/dotfiles.git' --work-tree='\${HOME}'"
+alias hom='make --makefile ${HOME}/.local/lib/homectl/Makefile'
+alias dot="git --git-dir=\${HOME}/.local/share/git/dotfiles.git --work-tree=\${HOME}"
 alias r='rm -rf'
 alias n='vim'  # basic bash environment should use vim always
 alias v='vim'
@@ -65,8 +66,6 @@ alias ..="cd .."
 alias cz="cz -n"
 alias ...="cd ../.."
 alias g='git'
-alias gca='git commit --amfi -m $(git log -1 --format="%s")'
-alias gaca='git add :; git commit --amfi -m $(git log -1 --format="%s")'                                                                      
 alias grep='grep --colour=auto'
 alias tree='tree --dirsfirst -aF -I .git -I node_modules -I target -I .mypy_cache -I __pycache__ -I .venv'
 alias ll="ls -lhA --color=auto"
