@@ -53,8 +53,8 @@ export PATH="${PATH}:${HOME}/.config/emacs/bin"
 export PATH="${PATH}:${HOME}/.nix-profile/bin"
 
 # custom aliasses
-alias hom='make --makefile ${HOME}/.local/lib/homectl/Makefile'
-alias dot="git --git-dir=\${HOME}/.local/share/git/dotfiles.git --work-tree=\${HOME}"
+alias homectl='make --makefile ${HOME}/.local/lib/homectl/Makefile'
+alias dotfiles="git --git-dir=\${HOME}/.local/share/git/dotfiles.git --work-tree=\${HOME}"
 alias r='rm -rf'
 alias n='vim'  # basic bash environment should use vim always
 alias v='vim'
