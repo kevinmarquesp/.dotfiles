@@ -5,8 +5,11 @@ TARGET := $(PWD)/backup.$(TIMESTAMP)
 PRIVATE_TARGET := $(PWD)/private-backup.$(TIMESTAMP)
 
 CLEAN := \
-  $(HOME)/.cache \
-	$(HOME)/.local/cache \
+	$(HOME)/*cache \
+	$(HOME)/.*cache \
+	$(HOME)/.local/*cache \
+	$(HOME)/.local/.*cache \
+	$(HOME)/.python_history \
 	$(ADD_CLEAN)  # user defined env
 
 BACKUP := \
