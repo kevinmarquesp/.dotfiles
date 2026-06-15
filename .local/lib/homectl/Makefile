@@ -5,6 +5,9 @@ BACKUP_TARGET := $(PWD)/backup.$(TIMESTAMP)
 PRIVATE_BACKUP_TARGET := $(PWD)/private-backup.$(TIMESTAMP)
 
 CLEAN := \
+	/tmp/* \
+	/tmp/.[!.]* \
+	/tmp/..?* \
 	$(HOME)/*cache \
 	$(HOME)/.*cache \
 	$(HOME)/.local/*cache \
