@@ -1,8 +1,8 @@
 MAKEFILE := $(HOME)/.local/lib/homectl/Makefile
 TIMESTAMP := $(shell date +%y%m%d%H%M)
 
-TARGET := $(PWD)/backup.$(TIMESTAMP)
-PRIVATE_TARGET := $(PWD)/private-backup.$(TIMESTAMP)
+BACKUP_TARGET := $(PWD)/backup.$(TIMESTAMP)
+PRIVATE_BACKUP_TARGET := $(PWD)/private-backup.$(TIMESTAMP)
 
 CLEAN := \
 	$(HOME)/*cache \
@@ -28,16 +28,18 @@ default:
 clean:
 	@rm -vrf $(CLEAN)
 
-backup: backup/private
-	@mkdir -vp '$(TARGET).temp'
+backup/all: backup backup/private
+
+backup:
+	@mkdir -vp '$(BACKUP_TARGET).temp'
 	@echo '$(BACKUP)' | tr ' ' '\n' | \
-		xargs -I '{}' -- cp -vr '{}' '$(TARGET).temp'
-	@tar -czf '$(TARGET).tar.gz' '$(TARGET).temp' && \
-		rm -vrf '$(TARGET).temp'
+		xargs -I '{}' -- cp -vr '{}' '$(BACKUP_TARGET).temp'
+	@tar -czf '$(BACKUP_TARGET).tar.gz' '$(BACKUP_TARGET).temp' && \
+		rm -vrf '$(BACKUP_TARGET).temp'
 
 backup/private:
-	@mkdir -vp '$(PRIVATE_TARGET).temp'
-	@echo '$(BACKUP)' | tr ' ' '\n' | \
-		xargs -I '{}' -- cp -vr '{}' '$(PRIVATE_TARGET).temp'
-	@tar -czf '$(PRIVATE_TARGET).tar.gz' '$(PRIVATE_TARGET).temp' && \
-		rm -vrf '$(PRIVATE_TARGET).temp'
+	@mkdir -vp '$(PRIVATE_BACKUP_TARGET).temp'
+	@echo '$(PRIVATE_BACKUP)' | tr ' ' '\n' | \
+		xargs -I '{}' -- cp -vr '{}' '$(PRIVATE_BACKUP_TARGET).temp'
+	@tar -czf '$(PRIVATE_BACKUP_TARGET).tar.gz' '$(PRIVATE_BACKUP_TARGET).temp' && \
+		rm -vrf '$(PRIVATE_BACKUP_TARGET).temp'
