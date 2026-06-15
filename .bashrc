@@ -87,7 +87,7 @@ alias fzf="fzf --border sharp --margin 5% --info inline --prompt 'SEARCH: ' --po
 # python relared aliases
 alias py='python3'
 alias pip='python3 -m pip'
-alias venv="python -m venv '.venv' && source './.venv/bin/activate'"
+alias venv='V=.venv/bin/activate; [ ! -e $V ] && python -m venv .venv; source $V; unset V'
 alias server='python3 -m http.server 8080'
 alias calc='python3 -i <(echo "from math import *; from statistics import *")'
 
