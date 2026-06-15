@@ -54,8 +54,9 @@ export ERL_MAX_PORTS=1024
 export XDG_STATE_HOME="${HOME}/.local/state"
 export HISTFILE="${XDG_STATE_HOME}/bash/history"
 export PYTHON_HISTORY="${XDG_STATE_HOME}/python/python_history"
+export SQLITE_HISTORY="${XDG_STATE_HOME}/sqlite_history"
 
-mkdir -vp "${HISTFILE%/*}" "${PYTHON_HISTORY%/*}"
+mkdir -vp "${HISTFILE%/*}" "${PYTHON_HISTORY%/*}" "${SQLITE_HISTORY%/*}"
 
 # path config
 export PATH="${PATH}:/bin:/usr/bin:/usr/local/bin"
