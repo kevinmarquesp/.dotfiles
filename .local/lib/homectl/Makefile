@@ -10,12 +10,15 @@ CLEAN := \
 	$(HOME)/.local/*cache \
 	$(HOME)/.local/.*cache \
 	$(HOME)/.python_history \
+	$(HOME)/.bash_history \
+	$(HOME)/.sqlite_history \
 	$(ADD_CLEAN)  # user defined env
 
 BACKUP := \
   $(HOME)/.bashrc \
   $(HOME)/.config/git \
   $(HOME)/.config/vim \
+  $(HOME)/.config/tmux \
 	$(ADD_BACKUP)  # user defined env
 
 PRIVATE_BACKUP := \
